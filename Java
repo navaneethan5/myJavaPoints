@@ -8,3 +8,6 @@
 - Interfaces can be implemented if we need to use a same method across arbitary objects
 - Variables modfier - public can be accessed anywhere, private within the class, protected within the class/package/subclass, no modifier within the same package
 - Static classes can be created with nested classes mentioned as static. To access Outclass.Innerclass = new Outclass.Innerclass()
+- Plant plant = new Tree() . The left hand side decides which method to call and the right hand side decides which class to call. Polymorphism is used whenever parent class reference is used to refer child class object
+- Upcasting - reference parent class to child object, Downcasting - Typecast upcasted parent reference to child object
+- Generics - parameterie the types of elements in a collection. Helps early  detection of compile errors and ensures type safety
