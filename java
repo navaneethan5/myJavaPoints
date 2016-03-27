@@ -1,0 +1,10 @@
+- static variables are class level variables that can be shared across all instances of the class. static methods can contain only static variables.
+- final keyword is used to make a static variable constant.
+- Strings are immutable. When appended it creates a new string everytime which is memory inefficient. String builders is a class which is used to append strings in memory efficient way
+- String buffer is synchronized compared to string buffer. String buffer is faster compared to string buider. Wherever the process/method is being accessed by single thread, using string builder would be efficient.
+- ToString used to create string interpretation of an object which is used to debug.
+- Private constructor is used to create singleton classes. A singleton class is one which limits the object creation to one and the private constructor ensures that no more than 1 object can be created at a time.
+- Heap is used to store objects and stack is to store local variables and function calls. Heap fill throws out of memory error , stack fill throws stack overflow exception. Every thread has its own stack memory , All the threads share the same heap
+- Interfaces can be implemented if we need to use a same method across arbitary objects
+- Variables modfier - public can be accessed anywhere, private within the class, protected within the class/package/subclass, no modifier within the same package
+- Static classes can be created with nested classes mentioned as static. To access Outclass.Innerclass = new Outclass.Innerclass()
