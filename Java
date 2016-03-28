@@ -16,4 +16,8 @@
 - Difference between interface and abstract class - abstract class can contain non abstract method/whereas interface cannot, interface can be used to implement multiple inheritance/whereas abstract cannot, in future if we need to add methods in abstract class , no changes required in extending classes,/but interface needs to implement
 - When we know some of them what to do and other features how to perform we use abstract classes e.g. burger. interface example - payment gateway Interfaces often describe the peripheral ability of classes/Abstract describe the core identify of the classes
 - Abstract class cannot be instantiated
-- FileReader can be read with BufferedReader
+- FileReader can be read with BufferedReader. FileOutputStream can be read with ObjectOutputStream
+- .equals method needs to be overridden to compare 2 objects. Otherwise it will just compare the memory location of the 2 objects. Exception for String and Integer classes as it creates a same reference even if we create 2 different variables
+- Serialization is a technique which converts an object into byte array. This byte array represents class of an object, state of an object . Uses - Can be used to replicate an object, can be used if same code runs in 2 different JVM’s, can be saved in database for persistence. SerialversioUiD is used to ensure that same class is used for both serialization and deserialization.
+- Transient keyword is used to prevent things from serialized
+- Arraylist - fast when added in the end/Linked list - fast when added in the beginning as every element in linked list contains reference to next and previous element
