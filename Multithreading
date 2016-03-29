@@ -12,3 +12,4 @@
 - Semaphore is a class with incur/decremental number which is used to acquire lock/release lock. The acquire method will acquire a lock and release method will release the lock. Its is mainly used to control the simultaneous users of a shared resource unto a maximum number.
 - Mutex is just having a single thread accessing the resource at one time
 - Thread safe is if a method/instance is able to be executed by several threads without any issues
+- Thread choice: Runnable is preffered as we do not need to create an objects , can be implemented along with mutiple interfaces
