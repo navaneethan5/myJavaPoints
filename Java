@@ -21,3 +21,12 @@
 - Serialization is a technique which converts an object into byte array. This byte array represents class of an object, state of an object . Uses - Can be used to replicate an object, can be used if same code runs in 2 different JVM’s, can be saved in database for persistence. SerialversioUiD is used to ensure that same class is used for both serialization and deserialization.
 - Transient keyword is used to prevent things from serialized
 - Arraylist - fast when added in the end/Linked list - fast when added in the beginning as every element in linked list contains reference to next and previous element
+- Hash map can be iterated using Map.Entry :map.entrySet() / iterate with map.keySet()
+- Types of map hash map/linkedhashmap/tree map , tree map will return the keys in sorted order, linked hash map will retrieve the values in the order that is inserted
+- Hashset/LinkedHashSet/Treeset - set does not allow duplicates. Cannot retrieve a particular element from set. Need to be converted to map or list to get the element
+- To sort the lists in natural order, Collections.sort can be used. To sort in user defined order, create a class that implements comparator.Override the compare method by using compareTo()
+- Hashcode , returns the memory location of the object.Even it is overridden, System.identityHashcode, returns the memory location
+- If equals is override then hashcode should also be overriden, else it will break the contract between two
+- Lists - stores objects, duplicates are allowed, objects remain in order as in inserted. Iterating to list is fast. Add or remove items from the list at the end use Array list else use linked list
+- Set - used to remove duplications, not indexed, optimized to find an object, need to implement hash code and equals method
+- Map - key value pairs, iterating map is slow., optimized to find an element
