@@ -30,3 +30,4 @@
 - Lists - stores objects, duplicates are allowed, objects remain in order as in inserted. Iterating to list is fast. Add or remove items from the list at the end use Array list else use linked list
 - Set - used to remove duplications, not indexed, optimized to find an object, need to implement hash code and equals method
 - Map - key value pairs, iterating map is slow., optimized to find an element
+- properties of .equal method - symentric, reflexive, transitive, consistent, null comparision
