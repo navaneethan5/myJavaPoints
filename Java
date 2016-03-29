@@ -11,7 +11,7 @@
 - Plant plant = new Tree() . The left hand side decides which method to call and the right hand side decides which class to call. Polymorphism is used whenever parent class reference is used to refer child class object
 - Upcasting - reference parent class to child object, Downcasting - Typecast upcasted parent reference to child object
 - Generics - parameterie the types of elements in a collection. Helps early  detection of compile errors and ensures type safety
-- Exception - throw is used to throw the actual exception, whereas throws is used to declare the exception in a method. Checked exception - exceptions that are forced to handle in compile time. Runtime exception - not forced to handle during run time e.g. divide by 0 . array overlflow, etc
+- Exception - throw is used to throw the actual exception, whereas throws is used to declare the exception in a method. Checked exception - exceptions that are forced to handle in compile time. Runtime exception - not forced to handle during run time e.g. divide by 0 . array overlflow, etc. Throws explicty calls out which exceptions that are not handled by the method
 - Difference between interface and class - classes will have implemented methods/intefaces will have abstract methods, classes can be extended to only 1 class/can have multiple implemetations in 1 class, interfaces force to implement methods/subclasses don’t
 - Difference between interface and abstract class - abstract class can contain non abstract method/whereas interface cannot, interface can be used to implement multiple inheritance/whereas abstract cannot, in future if we need to add methods in abstract class , no changes required in extending classes,/but interface needs to implement
 - When we know some of them what to do and other features how to perform we use abstract classes e.g. burger. interface example - payment gateway Interfaces often describe the peripheral ability of classes/Abstract describe the core identify of the classes
@@ -30,5 +30,9 @@
 - Lists - stores objects, duplicates are allowed, objects remain in order as in inserted. Iterating to list is fast. Add or remove items from the list at the end use Array list else use linked list
 - Set - used to remove duplications, not indexed, optimized to find an object, need to implement hash code and equals method
 - Map - key value pairs, iterating map is slow., optimized to find an element
-- properties of .equal method - symentric, reflexive, transitive, consistent, null comparision
+- properties oft .equal method - symentric, reflexive, transitive, consistent, null comparision
 - properties of hashcode - consistent using same execution
+- Difference between finally and finalize methods : finally method is normally used to release any resources that are held by the method when exception is thrown.finalize is a protected method of object class which is thrown by JVM before the object is garbage collected
+- Difference between Error and Exception: Error indicates problems that are expected to be catched by the application program, eg stackoverflow,outofmemory error. These problems cannot be recovered and are allowed to terminate. Exceptions are problems that are supposed to be handled by the program.
+- Difference between Iterator and ListIterator : List Iterator can traverse forward and backwards
+
