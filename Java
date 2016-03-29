@@ -31,3 +31,4 @@
 - Set - used to remove duplications, not indexed, optimized to find an object, need to implement hash code and equals method
 - Map - key value pairs, iterating map is slow., optimized to find an element
 - properties of .equal method - symentric, reflexive, transitive, consistent, null comparision
+- properties of hashcode - consistent using same execution
