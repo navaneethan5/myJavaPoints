@@ -1,19 +1,18 @@
-- static variables are class level variables that can be shared across all instances of the class. static methods can contain only static variables.
-- final keyword is used to make a static variable constant.
+- Final: used to make a static variable constant.
 - Strings are immutable. When appended it creates a new string everytime which is memory inefficient. String builders is a class which is used to append strings in memory efficient way
 - String buffer is synchronized compared to string buffer. String builder is faster compared to string buffer. Wherever the process/method is being accessed by single thread, using string builder would be efficient.
 - ToString used to create string interpretation of an object which is used to debug.
 - Private constructor is used to create singleton classes. A singleton class is one which limits the object creation to one and the private constructor ensures that no more than 1 object can be created at a time.
 - Heap is used to store objects and stack is to store local variables and function calls. Heap fill throws out of memory error , stack fill throws stack overflow exception. Every thread has its own stack memory , All the threads share the same heap
 - Interfaces can be implemented if we need to use a same method across arbitary objects
-- Variables modfier - public can be accessed anywhere, private within the class, protected within the class/package/subclass, no modifier within the same package
+- Variables modifier - public can be accessed anywhere, private within the class, protected within the class/package/subclass, no modifier within the same package
 - Static classes can be created with nested classes mentioned as static. To access Outclass.Innerclass = new Outclass.Innerclass()
 - Plant plant = new Tree() . The left hand side decides which method to call and the right hand side decides which class to call. Polymorphism is used whenever parent class reference is used to refer child class object
 - Upcasting - reference parent class to child object, Downcasting - Typecast upcasted parent reference to child object
 - Generics - parameterie the types of elements in a collection. Helps early  detection of compile errors and ensures type safety
 - Exception - throw is used to throw the actual exception, whereas throws is used to declare the exception in a method. Checked exception - exceptions that are forced to handle in compile time. Runtime exception - not forced to handle during run time e.g. divide by 0 . array overlflow, etc. Throws explicty calls out which exceptions that are not handled by the method
 - Difference between interface and class - classes will have implemented methods/intefaces will have abstract methods, classes can be extended to only 1 class/can have multiple implemetations in 1 class, interfaces force to implement methods/subclasses don’t
-- Difference between interface and abstract class - abstract class can contain non abstract method/whereas interface cannot, interface can be used to implement multiple inheritance/whereas abstract cannot, in future if we need to add methods in abstract class , no changes required in extending classes,/but interface needs to implement
+- Difference between interface and abstract class: abstract class can contain non abstract method/interface only abstract methods, interface can be used to implement multiple inheritance/abstract cannot, all methods in interfaces needs to be implemented/abstract not need to be, in future if we need to add methods in abstract class , no changes required in extending classes,/but interface needs to implement
 - When we know some of them what to do and other features how to perform we use abstract classes e.g. burger. interface example - payment gateway Interfaces often describe the peripheral ability of classes/Abstract describe the core identify of the classes
 - Abstract class cannot be instantiated
 - FileReader can be read with BufferedReader. FileOutputStream can be read with ObjectOutputStream
@@ -27,7 +26,7 @@
 - To sort the lists in natural order, Collections.sort can be used. To sort in user defined order, create a class that implements comparator.Override the compare method by using compareTo()
 - Hashcode , returns the memory location of the object.Even it is overridden, System.identityHashcode, returns the memory location
 - If equals is override then hashcode should also be overriden, else it will break the contract between two
-- Lists - stores objects, duplicates are allowed, objects remain in order as in inserted. Iterating to list is fast. Add or remove items from the list at the end use Array list else use linked list
+- Lists: stores objects, duplicates are allowed, objects remain in order as in inserted, faster iteration. Add or remove items from the list at the end use Array list else use linked list
 - Set: used to remove duplications, not indexed, optimized to find an object, need to implement hash code and equals method
 - Map: contains key value pairs, iterating map is slow, optimized to find an element
 - Equals: symentric, reflexive, transitive, consistent, null comparision
@@ -39,5 +38,8 @@
 - JRE : Implementation of JVM where the actual program runs
 - Autoboxing: Transformation of primitive data types to its object equivalents or wrapper/Unboxing is viceversa
 - SimpleDateFormat : Its a class to format and parse date in java
+- Static : static methods cannot be overrided as overriding requires dynamic binding during runtime, where static binds during compile time. Class level variables and are shared across all objects
+- Pass by value/reference: When passed by reference any change to the object in calling program will be changed/When passed by value only copy of the values in object is passed
+
 
 
