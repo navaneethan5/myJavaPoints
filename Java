@@ -1,7 +1,7 @@
 - static variables are class level variables that can be shared across all instances of the class. static methods can contain only static variables.
 - final keyword is used to make a static variable constant.
 - Strings are immutable. When appended it creates a new string everytime which is memory inefficient. String builders is a class which is used to append strings in memory efficient way
-- String buffer is synchronized compared to string buffer. String buffer is faster compared to string buider. Wherever the process/method is being accessed by single thread, using string builder would be efficient.
+- String buffer is synchronized compared to string buffer. String builder is faster compared to string buffer. Wherever the process/method is being accessed by single thread, using string builder would be efficient.
 - ToString used to create string interpretation of an object which is used to debug.
 - Private constructor is used to create singleton classes. A singleton class is one which limits the object creation to one and the private constructor ensures that no more than 1 object can be created at a time.
 - Heap is used to store objects and stack is to store local variables and function calls. Heap fill throws out of memory error , stack fill throws stack overflow exception. Every thread has its own stack memory , All the threads share the same heap
@@ -28,11 +28,16 @@
 - Hashcode , returns the memory location of the object.Even it is overridden, System.identityHashcode, returns the memory location
 - If equals is override then hashcode should also be overriden, else it will break the contract between two
 - Lists - stores objects, duplicates are allowed, objects remain in order as in inserted. Iterating to list is fast. Add or remove items from the list at the end use Array list else use linked list
-- Set - used to remove duplications, not indexed, optimized to find an object, need to implement hash code and equals method
-- Map - key value pairs, iterating map is slow., optimized to find an element
-- properties oft .equal method - symentric, reflexive, transitive, consistent, null comparision
-- properties of hashcode - consistent using same execution
+- Set: used to remove duplications, not indexed, optimized to find an object, need to implement hash code and equals method
+- Map: contains key value pairs, iterating map is slow, optimized to find an element
+- Equals: symentric, reflexive, transitive, consistent, null comparision
+- Hashcode: consistent using same execution
 - Difference between finally and finalize methods : finally method is normally used to release any resources that are held by the method when exception is thrown.finalize is a protected method of object class which is thrown by JVM before the object is garbage collected
 - Difference between Error and Exception: Error indicates problems that are expected to be catched by the application program, eg stackoverflow,outofmemory error. These problems cannot be recovered and are allowed to terminate. Exceptions are problems that are supposed to be handled by the program.
 - Difference between Iterator and ListIterator : List Iterator can traverse forward and backwards
+- JVM : Interpreter that accepts byte code and executes it. It is platform independent as the JVM executes the bytecode , whereas the JVM is designed for particular platform
+- JRE : Implementation of JVM where the actual program runs
+- Autoboxing: Transformation of primitive data types to its object equivalents or wrapper/Unboxing is viceversa
+- SimpleDateFormat : Its a class to format and parse date in java
+
 
