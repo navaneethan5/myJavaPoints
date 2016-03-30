@@ -15,4 +15,6 @@
 - Thread choice: Runnable is preffered as we do not need to create an objects , can be implemented along with mutiple interfaces
 - Monitor: Each object reference has a monitor which ensures that only one thread executes the synchronized block
 - Difference between wait/sleep - wait is at object level/sleep is at class level, wait releases the lock/sleep doesnt, wait is used for interthread communication/sleep is to pause the process
+- Best practices: Minimize scope of syncronization, prefer volatile over synchronization, Use high level concurreny utilities such as Blocking queue, Semaphore, CountdownLatch instead of wait/notigy for inter thread communication,prefer concurrent collection over synchronized collection for better scalablity.
+- Concurrent/synchronized collections: Collections such as hashmap,linkedhashmap are slower as the synchronized blocks the entire block/Concurenthashmap divides the map into different segments and locks only on segments, thereby allowing multiple thread to access otehr segments
 
