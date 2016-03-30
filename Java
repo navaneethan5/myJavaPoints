@@ -41,4 +41,4 @@
 - Fail-fast/Fail-safe: Fail fast is better as we get a chance to detect the issues early instead of concealing the issue.
 - Reflection: Ability to modify the structure of an object during runtime.
 - Comparator/Comparable: Comparable interface used to implement the natural sort order/Comparator used to implement user defined sort order
-
+- Iterator: 4 methods - hasNext, next, remove, forEachRemaining
