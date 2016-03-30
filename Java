@@ -19,16 +19,14 @@
 - SerialversioUiD: Used to ensure that same class is used for both serialization and deserialization.
 - Transient: Keyword is used to prevent things from serialized
 - Hash map: Can be iterated using Map.Entry :map.entrySet() / iterate with map.keySet()
-- Types of map hash map/linkedhashmap/tree map , tree map will return the keys in sorted order, linked hash map will retrieve the values in the order that is inserted
-- Hashset/LinkedHashSet/Treeset - set does not allow duplicates. Cannot retrieve a particular element from set. Need to be converted to map or list to get the element
-- To sort the lists in natural order, Collections.sort can be used. To sort in user defined order, create a class that implements comparator.Override the compare method by using compareTo()
-- Hashcode , returns the memory location of the object.Even it is overridden, System.identityHashcode, returns the memory location
-- If equals is override then hashcode should also be overriden, else it will break the contract between two
+- Types of map: Hash map/linkedhashmap/tree map , tree map will return the keys in sorted order, linked hash map will retrieve the values in the order that is inserted
+- Hashset/LinkedHashSet/Treeset: Set does not allow duplicates. Cannot retrieve a particular element from set. Need to be converted to map or list to get the element
+- Sorting: To sort the lists in natural order, Collections.sort can be used. To sort in user defined order, create a class that implements comparator.Override the compare method by using compareTo()
 - Lists: stores objects, duplicates are allowed, objects remain in order as in inserted, faster iteration. Add or remove items from the list at the end use Array list else use linked list
 - Set: used to remove duplications, not indexed, optimized to find an object, need to implement hash code and equals method
 - Map: contains key value pairs, iterating map is slow, optimized to find an element
 - Equals: symentric, reflexive, transitive, consistent, null comparision;needs to be overridden to compare 2 objects. Otherwise it will just compare the memory location of the 2 objects. Exception for String and Integer classes as it creates a same reference even if we create 2 different variables.
-- Hashcode: consistent using same execution
+- Hashcode: consistent using same execution, returns the memory location of the object.Even it is overridden, System.identityHashcode, returns the memory location
 - Difference between finally and finalize methods : finally method is normally used to release any resources that are held by the method when exception is thrown.finalize is a protected method of object class which is thrown by JVM before the object is garbage collected
 - Difference between Error and Exception: Error indicates problems that are expected to be catched by the application program, eg stackoverflow,outofmemory error. These problems cannot be recovered and are allowed to terminate. Exceptions are problems that are supposed to be handled by the program.
 - Difference between Iterator and ListIterator : List Iterator can traverse forward and backwards
