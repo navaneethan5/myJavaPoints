@@ -39,4 +39,5 @@
 - Fail-fast iterator: When the structure of collection changes ie add/remove element , while other thread iterates. It keeps a modification count and when changes ,it throws an exception concurrentmodification exception.eg. Arraylist,Hashset
 - Fail-safe iterator: When the structure changes of the collection changes, the exception is not thrown as the thread works on clone of the collection. eg ConcurrentHashMap
 - Fail-fast/Fail-safe: Fail fast is better as we get a chance to detect the issues early instead of concealing the issue.
+- Reflection: Ability to modify the structure of an object during runtime.
 
