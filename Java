@@ -11,13 +11,14 @@
 - Generics: Parameterie the types of elements in a collection. Helps early  detection of compile errors ,ensures type safety.
 - Exception: Throw is used to throw the actual exception, whereas throws is used to declare the exception in a method. Checked exception - exceptions that are forced to handle in compile time. Runtime exception - not forced to handle during run time e.g. divide by 0 . array overlflow, etc. Throws explicty calls out which exceptions that are not handled by the method.
 - Difference between interface and class: Classes will have implemented methods/intefaces will have abstract methods, classes can be extended to only 1 class/can have multiple implemetations in 1 class, interfaces force to implement methods/subclasses don’t
-- Difference between interface and abstract class: abstract class can contain non abstract method/interface only abstract methods, interface can be used to implement multiple inheritance/abstract cannot, all methods in interfaces needs to be implemented/abstract not need to be, in future if we need to add methods in abstract class , no changes required in extending classes,/but interface needs to implement
-- When we know some of them what to do and other features how to perform we use abstract classes e.g. burger. interface example - payment gateway Interfaces often describe the peripheral ability of classes/Abstract describe the core identify of the classes
-- Abstract class cannot be instantiated
-- FileReader can be read with BufferedReader. FileOutputStream can be read with ObjectOutputStream
-- .equals method needs to be overridden to compare 2 objects. Otherwise it will just compare the memory location of the 2 objects. Exception for String and Integer classes as it creates a same reference even if we create 2 different variables
-- Serialization is a technique which converts an object into byte array. This byte array represents class of an object, state of an object . Uses - Can be used to replicate an object, can be used if same code runs in 2 different JVM’s, can be saved in database for persistence. SerialversioUiD is used to ensure that same class is used for both serialization and deserialization.
-- Transient keyword is used to prevent things from serialized
+- Difference between interface and abstract class: Abstract class can contain non abstract method/interface only abstract methods, interface can be used to implement multiple inheritance/abstract cannot, all methods in interfaces needs to be implemented/abstract not need to be, in future if we need to add methods in abstract class , no changes required in extending classes/interface needs to implement
+- Abstract/Interface class: When we know some of them what to do and other features how to perform we use abstract classes e.g. burger. interface example - payment gateway. Interfaces often describe the peripheral ability of classes/Abstract describe the core identity of the classes.
+- Abstract class: cannot be instantiated
+- File: FileReader can be read with BufferedReader. FileOutputStream can be read with ObjectOutputStream
+- Serialization: Technique which converts an object into byte array. This byte array represents class of an object, state of an object . Uses - Can be used to replicate an object, can be used if same code runs in 2 different JVM’s, can be saved in database for persistence. 
+- SerialversioUiD: Used to ensure that same class is used for both serialization and deserialization.
+- Transient: Keyword is used to prevent things from serialized
+
 - Arraylist - fast when added in the end/Linked list - fast when added in the beginning as every element in linked list contains reference to next and previous element
 - Hash map can be iterated using Map.Entry :map.entrySet() / iterate with map.keySet()
 - Types of map hash map/linkedhashmap/tree map , tree map will return the keys in sorted order, linked hash map will retrieve the values in the order that is inserted
@@ -28,7 +29,7 @@
 - Lists: stores objects, duplicates are allowed, objects remain in order as in inserted, faster iteration. Add or remove items from the list at the end use Array list else use linked list
 - Set: used to remove duplications, not indexed, optimized to find an object, need to implement hash code and equals method
 - Map: contains key value pairs, iterating map is slow, optimized to find an element
-- Equals: symentric, reflexive, transitive, consistent, null comparision
+- Equals: symentric, reflexive, transitive, consistent, null comparision;needs to be overridden to compare 2 objects. Otherwise it will just compare the memory location of the 2 objects. Exception for String and Integer classes as it creates a same reference even if we create 2 different variables.
 - Hashcode: consistent using same execution
 - Difference between finally and finalize methods : finally method is normally used to release any resources that are held by the method when exception is thrown.finalize is a protected method of object class which is thrown by JVM before the object is garbage collected
 - Difference between Error and Exception: Error indicates problems that are expected to be catched by the application program, eg stackoverflow,outofmemory error. These problems cannot be recovered and are allowed to terminate. Exceptions are problems that are supposed to be handled by the program.
