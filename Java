@@ -32,7 +32,7 @@
 - Difference between Iterator and ListIterator : List Iterator can traverse forward and backwards
 - JVM : Interpreter that accepts byte code and executes it. It is platform independent as the JVM executes the bytecode , whereas the JVM is designed for particular platform
 - JRE : Implementation of JVM where the actual program runs
-- Autoboxing: Transformation of primitive data types to its object equivalents or wrapper/Unboxing is viceversa
+- Autoboxing: Transformation of primitive data types to its object equivalents or wrapper/Unboxing is viceversa. Helpful when working with collections, Wrapper classes provides more functionalitis like data type conversions, etc
 - SimpleDateFormat : Its a class to format and parse date in java. To make threadsafe we need to use it as Threadlocal.
 - Static : static methods cannot be overrided as overriding requires dynamic binding during runtime, where static binds during compile time. Class level variables and are shared across all objects
 - Pass by value/reference: When passed by reference any change to the object in calling program will be changed/When passed by value only copy of the values in object is passed
