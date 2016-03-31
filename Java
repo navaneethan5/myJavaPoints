@@ -4,16 +4,16 @@
 - Private constructor: Used to create singleton classes. Singleton class restricts object creation to one.
 - Heap/Stack: Heap stores objects and stack stores local variables and function calls. Heap - Out of memory error, Stack - Overflow exception. Every thread has its own stack memory but all the threads share the same heap.
 - Interfaces: Can be implemented if we need to use a same method across arbitary objects
-- Modifier: Public can be accessed anywhere, private within the class, protected within the class/package/subclass, no modifier within the same package.
-- Static classes: Can be created with nested classes as static. To access Outclass.Innerclass = new Outclass.Innerclass().
-- Polymorphism: Plant plant = new Tree() . The left hand side decides which method to call and the right hand side decides which class to call. Used whenever parent class reference is used to refer child class object.
-- Upcasting/Downcasting: Upcasting reference parent class to child object, Downcasting - Typecast upcasted parent reference to child object
-- Generics: Parameterie the types of elements in a collection. Helps early  detection of compile errors ,ensures type safety.
-- Exception: Throw is used to throw the actual exception, whereas throws is used to declare the exception in a method. Checked exception - exceptions that are forced to handle in compile time. Runtime exception - not forced to handle during run time e.g. divide by 0 . array overlflow, etc. Throws explicty calls out which exceptions that are not handled by the method.
 - Difference between interface and class: Classes will have implemented methods/intefaces will have abstract methods, classes can be extended to only 1 class/can have multiple implemetations in 1 class, interfaces force to implement methods/subclasses don’t
 - Difference between interface and abstract class: Abstract class can contain non abstract method/interface only abstract methods, interface can be used to implement multiple inheritance/abstract cannot, all methods in interfaces needs to be implemented/abstract not need to be, in future if we need to add methods in abstract class , no changes required in extending classes/interface needs to implement
 - Abstract/Interface class: When we know some of them what to do and other features how to perform we use abstract classes e.g. burger. interface example - payment gateway. Interfaces often describe the peripheral ability of classes/Abstract describe the core identity of the classes.
 - Abstract class: cannot be instantiated
+- Modifier: Public can be accessed anywhere, private within the class, protected within the class/package/subclass, no modifier within the same package.
+- Static classes: Can be created with nested classes as static. To access Outclass.Innerclass = new Outclass.Innerclass().
+- Polymorphism: Plant plant = new Tree() . The left hand side decides which method to call and the right hand side decides which class to call. Used whenever parent class reference is used to refer child class object.
+- Upcasting/Downcasting: Upcasting reference parent class to child object, Downcasting - Typecast upcasted parent reference to child object
+- Generics: Parameterize the types of elements in a collection. Helps early  detection of compile errors ,ensures type safety.
+- Exception: Throw is used to throw the actual exception, whereas throws is used to declare the exception in a method. Checked exception - exceptions that are forced to handle in compile time. Runtime exception - not forced to handle during run time e.g. divide by 0 . array overlflow, etc. Throws explicty calls out which exceptions that are not handled by the method.
 - File: FileReader can be read with BufferedReader. FileOutputStream can be read with ObjectOutputStream
 - Serialization: Technique which converts an object into byte array. This byte array represents class of an object, state of an object . Uses - Can be used to replicate an object, can be used if same code runs in 2 different JVM’s, can be saved in database for persistence. 
 - SerialversioUiD: Used to ensure that same class is used for both serialization and deserialization.
@@ -33,7 +33,7 @@
 - JVM : Interpreter that accepts byte code and executes it. It is platform independent as the JVM executes the bytecode , whereas the JVM is designed for particular platform
 - JRE : Implementation of JVM where the actual program runs
 - Autoboxing: Transformation of primitive data types to its object equivalents or wrapper/Unboxing is viceversa
-- SimpleDateFormat : Its a class to format and parse date in java
+- SimpleDateFormat : Its a class to format and parse date in java. To make threadsafe we need to use it as Threadlocal.
 - Static : static methods cannot be overrided as overriding requires dynamic binding during runtime, where static binds during compile time. Class level variables and are shared across all objects
 - Pass by value/reference: When passed by reference any change to the object in calling program will be changed/When passed by value only copy of the values in object is passed
 - Fail-fast iterator: When the structure of collection changes ie add/remove element , while other thread iterates. It keeps a modification count and when changes ,it throws an exception concurrentmodification exception.eg. Arraylist,Hashset
