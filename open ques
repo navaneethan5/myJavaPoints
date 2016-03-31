@@ -1,9 +1,8 @@
 How private cons makes singleton classes
 what is the use of nested static class
 difference between file reader and file output stream
-use of serialisation
-what is the use of autoboxing
 what is threadlocal
 what is hashset
 reflection use
 difference between iterator and for each
+deadlock code example
