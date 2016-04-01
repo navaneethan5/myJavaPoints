@@ -9,7 +9,6 @@
 - Wait & notify: Its a mechanism to hold the thread execution until a condition is satisfied. Both wait and notify should be inside the synchronized block
 - Reentrant lock: Its a thread lock mechanism using lock and unlock calls before and after the method
 - Deadlock:  Occurs when thread1 is waiting for an object lock which is acquired by thread2 and vice versa.Can be eliminated by using ReentrantLock class
-
 - Semaphore: Its class with incremental/decremental number which is used to acquire lock/release lock. The acquire method will acquire a lock and release method will release the lock. Its is mainly used to control the simultaneous users of a shared resource unto a maximum number.
 - Mutex: Having a single thread accessing the resource at one time
 - Thread safe: If a method/instance is able to be executed by several threads without any issues
