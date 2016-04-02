@@ -17,4 +17,9 @@ To get subtracted values: <rdd1>.subtract(<rdd2>
 To return elements with limits: <rdd>.flatMap(x => x.to(<end number>))
 To reduce an RDD: <rdd>.reduce((x,y), x+y))
 To calculate average: <rdd>.map(x => (x,1)).reduce((x,y) => x+y)
-237 - 40
+To get all data: <rdd>.collect
+To get the number of times each element occured in RDD: <rdd>.countByValue. Returns {(value, count), (value,count)...}
+To get the top elements: <rdd>.top(no of elements)
+To get the number of elements in ordered way: <rdd>.takeOrdered(num of elements)(<my orderding>)
+To return sample elements: <rdd>.takeSample(false,1) 
+To iterate the RDD: <rdd>.forEach(func)
