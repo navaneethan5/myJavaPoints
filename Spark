@@ -28,7 +28,10 @@ Subract: Returns an RDD in first RDD which is not in second
 Distinct: Operation is expensive because it needs shuffling of entire dataset. Intersection is more worst as it needs shuffling across the network.
 Cartesaen: Returns RDD with cartesian product ie 3 x 3 returns 9 values
 Reduce: Takes a function that operates on 2 elements of the type in RDD and returns a new element of same type
-Fold: ??
+Fold: Same as that of reduce but takes 0 value
 Agregate: ??
+Take: Takes the number of elements. Might not return the elements in same order
+TakeSample: The result of take sample would be nondeterministic
+
 
 
