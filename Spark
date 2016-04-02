@@ -5,8 +5,30 @@ Every time when a new component is added to the spark stack, every organization 
 Ability to build applications seamlessly that combine different processing models.
 Spark is faster than hadoop as it extends MapReduce alogorithm which runs on inbuilt memory computations rather than processing from the disk.
 Spark core - includes components for task scheduling, memory management, fault recovery, interacting with storage systems like hdfs.
-RDD - Resilent Distribution Dataset which represents a collection of items distributed across many compute nodes that can be manipulated in parallel.
+RDD - immutable distributed collection of objects. Each rdd is split into multiple partitions which may be computed on different nodes on the cluster.
 Spark SQL - Spark's package for working with structured data. Allows querying data via SQL.
 Spark streaming - Spark's component that enables processing of live streams of data, eg server logs, webservice published by kafka
 Mlib - Machine learning library
 Graphx - Library for manipulating graphs and performing graph- parallel computations.
+Spark does not need hadoop. It simply has support for storage systems implementing the hadoop API's.
+SparkContext - Its an object which represents the connection to a computing cluster. Driver program(spark-shell) access spark through SparkContext.
+RDD creation: Can be done by loading an external dataset or distributing a collection of objects to their driver program.
+Operations: Transformations - construct a new RDD from previous one, Actions - compute a result based on RDD and return to driver program or to external storage
+Lazy evaluation: Spark computes only when it sees the RDD in action
+Persist; RDD will be able to persist data once an action is applied in memory/disk. This enables multiple actions in RDD and resuse the RDD
+Examples of transformation: map, filter, flatMap
+Examples of actions: count, first
+Lineage graph: Spark keeps track the set of dependencies between different RDD's .It is used to compute each RDD on demand and to recover any lost data
+Collect/Take: Collect returns the entire RDD whereas take returns only a specified number. The entire action should fit in 1 machine,so collect should not be used for large datasets
+Map: Applies to each and every element in RDD and result being a new value of each element in same RDD
+Filter: Takes in a function and returns RDD that has only elements that pass the filter function, but output datatype doesnt have to be same as that of input
+Flatmap: Each element in RDD may produce more than 1 output element
+Union: Does not contain unique values might contain duplicate as well
+Subract: Returns an RDD in first RDD which is not in second
+Distinct: Operation is expensive because it needs shuffling of entire dataset. Intersection is more worst as it needs shuffling across the network.
+Cartesaen: Returns RDD with cartesian product ie 3 x 3 returns 9 values
+Reduce: Takes a function that operates on 2 elements of the type in RDD and returns a new element of same type
+Fold: ??
+Agregate: ??
+
+
