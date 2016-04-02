@@ -1,0 +1,20 @@
+To create a text file: sc.textFile("<filename>")
+To get the count of lines in file: <rdd>.count()
+To get the first line of the file: <rdd>.first()
+To filter a word: <rdd>.filter(x =>x.contains("<filtered_word>")
+To initalize spark context: val conf = new SparkConf().setMaster("local").setAppName("My App"); val sc= new SparkContext(conf);
+To exit the application: sc.stop
+To save a file: <rdd>.saveAsTextFile("<filename>")
+To split the based on content:<rdd>.flatMap(x => x.split("<regex>"))
+To transform into key value :<rdd>.map(x ==> (x,1))
+To create an RDD from collection: sc.parallelize(list("hello","how are you"))
+To perform union operation: <rdd1>.union(<rdd2>) 
+To return only a set of records: <rdd>.take(<no of lines>)
+To convert to string datatype: <rdd>.collect().mkString(",")
+To get unique values: <rdd>.distinct
+To get common values: <rdd1>.intersection(<rdd2>)
+To get subtracted values: <rdd1>.subtract(<rdd2>
+To return elements with limits: <rdd>.flatMap(x => x.to(<end number>))
+To reduce an RDD: <rdd>.reduce((x,y), x+y))
+To calculate average: <rdd>.map(x => (x,1)).reduce((x,y) => x+y)
+237 - 40
