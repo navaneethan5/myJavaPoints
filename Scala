@@ -16,7 +16,6 @@ To get common values: <rdd1>.intersection(<rdd2>)
 To get subtracted values: <rdd1>.subtract(<rdd2>
 To return elements with limits: <rdd>.flatMap(x => x.to(<end number>))
 To reduce an RDD: <rdd>.reduce((x,y), x+y))
-To calculate average: <rdd>.map(x => (x,1)).reduce((x,y) => x+y)
 To get all data: <rdd>.collect
 To get the number of times each element occured in RDD: <rdd>.countByValue. Returns {(value, count), (value,count)...}
 To get the top elements: <rdd>.top(no of elements)
@@ -24,3 +23,5 @@ To get the number of elements in ordered way: <rdd>.takeOrdered(num of elements)
 To return sample elements: <rdd>.takeSample(false,1) 
 To iterate the RDD: <rdd>.forEach(func)
 To persist/unpersist data: <rdd>.persist(StorageLevel.DISK_ONLY) ; <rdd>.unpersist
+To get the first line as key: <rdd>.map(x => x.split(" ")(0), x)
+To combine values with same key: <rdd>.reduceByKey((x,y) => x+y)
