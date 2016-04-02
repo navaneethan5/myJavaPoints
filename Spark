@@ -1,0 +1,12 @@
+Spark contains 'spark core' which serves as computational engine.
+Spark core takes care of scheduling, distributing and monitoring applications.
+Tight integration across all spark components. When spark core adds optimization, SQL and machine learning libraries automatically speed up as well
+Every time when a new component is added to the spark stack, every organization in the spark is able to try the new component.
+Ability to build applications seamlessly that combine different processing models.
+Spark is faster than hadoop as it extends MapReduce alogorithm which runs on inbuilt memory computations rather than processing from the disk.
+Spark core - includes components for task scheduling, memory management, fault recovery, interacting with storage systems like hdfs.
+RDD - Resilent Distribution Dataset which represents a collection of items distributed across many compute nodes that can be manipulated in parallel.
+Spark SQL - Spark's package for working with structured data. Allows querying data via SQL.
+Spark streaming - Spark's component that enables processing of live streams of data, eg server logs, webservice published by kafka
+Mlib - Machine learning library
+Graphx - Library for manipulating graphs and performing graph- parallel computations.
