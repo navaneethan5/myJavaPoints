@@ -23,3 +23,4 @@ To get the top elements: <rdd>.top(no of elements)
 To get the number of elements in ordered way: <rdd>.takeOrdered(num of elements)(<my orderding>)
 To return sample elements: <rdd>.takeSample(false,1) 
 To iterate the RDD: <rdd>.forEach(func)
+To persist/unpersist data: <rdd>.persist(StorageLevel.DISK_ONLY) ; <rdd>.unpersist
