@@ -32,6 +32,8 @@ Fold: Same as that of reduce but takes 0 value
 Agregate: ??
 Take: Takes the number of elements. Might not return the elements in same order
 TakeSample: The result of take sample would be nondeterministic
-
+Why persistence needed: Everytime action is call, spark will recompute the RDD and its dependencies as spark works on lazy evaulation. Persist data to avoid it.
+Persistence storage: Default persistence will the objects in heap as unserialized objects . If we write in disk it will be serialized.
+Persistence levels: MEMEORY_ONLY - More space, less CPU time/MEMORY_ONLY_SER - Less space, High cpu time/ MEMORY_AND_DISK - More space, Medium CPU time, spills to disc if too much memory/ MEMORY_AND_DISK_SER - Less space used, More CPU time/DISK_ONLY - Less space, High CPU time
 
 
