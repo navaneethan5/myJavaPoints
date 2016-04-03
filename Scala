@@ -24,6 +24,7 @@ To return sample elements: <rdd>.takeSample(false,1)
 To iterate the RDD: <rdd>.forEach(func)
 To persist/unpersist data: <rdd>.persist(StorageLevel.DISK_ONLY) ; <rdd>.unpersist
 To get the first line as key: <rdd>.map(x => x.split(" ")(0), x)
+
 To combine values with same key in pair rdd: <rdd>.reduceByKey((x,y) => x+y)
 To group by key in pair rdd: <rdd>.groupByKey
 To change the values in pair rdd: <rdd>.mapValues(x => x +1)
@@ -37,6 +38,6 @@ To perform right outer join: ???
 To perform left outer join: ???
 To group together - cogroup: ??
 To filter pair rdd based on values length: <pair rdd>.filter(case (key, value) => value.length < <number>)
-
+To count the number of occurances in the pair RDD: <rdd>.mapValues(x => (x,1)).reduceByKey((x,y) => x._1 +y._1 , c._2+y._2))
 
 
