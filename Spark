@@ -36,6 +36,7 @@ Why persistence needed: Everytime action is call, spark will recompute the RDD a
 Persistence storage: Default persistence will the objects in heap as unserialized objects . If we write in disk it will be serialized.
 Persistence levels: MEMEORY_ONLY - More space, less CPU time/MEMORY_ONLY_SER - Less space, High cpu time/ MEMORY_AND_DISK - More space, Medium CPU time, spills to disc if too much memory/ MEMORY_AND_DISK_SER - Less space used, More CPU time/DISK_ONLY - Less space, High CPU time
 Difference between cache/persist: ???
+
 Purpose of key/value pair RDD: Eg: counting up reviews for each product, grouping together data with same key, grouping together different RDD's
 Tuples: ??
 
