@@ -1,8 +1,5 @@
-ModelViewController:
-- model contains data, view represents GUI/system interacts user, controller contains buisness logic of the application.
-- view listens to model and gets notified if data changes, controller listens model and view and it tells them what to do.
-Observer Pattern: 
-- Implements provider(subject)/notifier(observer) . Whenever a change occurs in subject, the observer gets notified.
-- Used in event driven programming
-- Used when an object is modified its dependent objects needs to be intimated immediately
+Factory Pattern:
+- Create objects without exposing the creation logic to the client.
+- Create an interface and classes implementing it. Then create FactoryPattern class which contains methods to create objects. Then create a new class and create a Factorypattern object. Then invoke the method to create an object.
+
 
