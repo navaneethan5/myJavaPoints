@@ -1,7 +1,7 @@
 RDD: Immutable collection of simple objects. Can be split into multiple partitions which in turn can run individually on each node in cluster.
 RDD creation: Can be created by loading an external dataset or by distributing a collection of objects to the driver program.
 Types of RDD operations: Transformations, which in turn creates a new RDD /Actions, returns the computed results of RDD and can return to driver/hdfs.
-Lazy evaluation: Spark creates an red only when an action is made, otherwise it will the metadata of RDD creation code.
+Lazy evaluation: Spark creates an rdd only when an action is made, otherwise it will the metadata of RDD creation code.
 Cache/Persist: Cache and persist both store data where cache stores at default memory storage but persist stores based on user inputs.
 RDD creation examples: a) val lines = sc.parallelize(List(“hi”, “how are you”) b) val lines = sc.textFile(“README.md”)
 Filter Transformation: val rdd1 = rdd.filter(x => x.contains(“error”))
@@ -36,7 +36,7 @@ Keys Transformation: Returns a list of keys //rdd.keys
 Values Transformation: Returns list of values //rdd.values
 SortByKey Transformation: Returns results in sorted order //rdd.sortByKey
 SubtractByKey Transformation: Returns the rdd1 key value which is not in rd.
-Join Transformation: Groups by key with rdd1 and rdd2 
+Join Transformation: Groups by key with rdd1 and rdd2 ;val joined = userData.join(events)// RDD of (UserID, (UserInfo, LinkInfo)) pairs
 RightOuterJoin Transformation: Perform join but the key should be present in rdd1 {(3,(Some(4),9)),(3,(Some(6),9))}
 LeftOuterJoin Transformation: Perform join but the key should be present in rdd1.{(1,(2,None)), (3,(4,Some(9))), (3,(6,Some(9)))}
 Cogroup Transformation: Groups the data from both RDDs sharing the same key .eg {(1,[2].[]) , (3, [4,6], [9])}
@@ -48,6 +48,18 @@ Repartition: Repartition can be done by using repartition or coalesce . Repartit
 CountByKey: counts the number of keys in pair rdd
 CollectAsMap: collects the results as map format. If duplicate keys are there , it is getting override
 Lookuo: returns the value for the lookup key
+Partitions in key value pairs: Keys can be grouped in 1 node when partitions are defined, but cannot control which key goes to which node.
+Partition method: val userdata = sc.sequenceFile[UserId, UserInfo]("hdfs://...").partitionBy(new HashPartitioner(100)).persist().
+Persist partition: Always persist the partitiondata else it will reshuffle the entire partition again.
+HashPartition: val partioned = pairs.partitionBy(new org.apache.spark.HashPartitioner(2));To check, partioned.partitioner
+Benefits from partioning: cogroup(), groupWith(), join(), leftOuterJoin(), rightOuter,Join(), groupByKey(), reduceByKey(), combineByKey(), and lookup()
+Supported file formats: text, json,csv, sequencefiles, protocol format, object files (o/p format to hadoop will always be a key value pair)
+Whole file: val input = sc.wholeTextFiles("file://home/holden/salesFiles") ; creates key value pair, where key is the file name
+Save text files: pair.saveAsTextFile("/tmp/test") ; this saves text files in op directory based on the partion size alomg with success file
+
+
+
+
 
 Open questions:
 2.Need to check how top action works
