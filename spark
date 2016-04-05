@@ -1,0 +1,57 @@
+RDD: Immutable collection of simple objects. Can be split into multiple partitions which in turn can run individually on each node in cluster.
+RDD creation: Can be created by loading an external dataset or by distributing a collection of objects to the driver program.
+Types of RDD operations: Transformations, which in turn creates a new RDD /Actions, returns the computed results of RDD and can return to driver/hdfs.
+Lazy evaluation: Spark creates an red only when an action is made, otherwise it will the metadata of RDD creation code.
+Cache/Persist: Cache and persist both store data where cache stores at default memory storage but persist stores based on user inputs.
+RDD creation examples: a) val lines = sc.parallelize(List(“hi”, “how are you”) b) val lines = sc.textFile(“README.md”)
+Filter Transformation: val rdd1 = rdd.filter(x => x.contains(“error”))
+Lineage graph: Spark keeps track a set of dependencies between different RDDs. Used to recover any lost data or to create RDD on demand.
+Take action example: rdd.take(3).foreach(println)
+Collect action:rdd.collect //the entire dataset should fit in a single machine. Has always to be associated with mkString(“ “)
+Functions: When passing functions, the objects that are used in the function should be always serialized.
+Map Transformation: Works on each element in RDD and returns the same number of elements, but the element datatype can be different from the other.
+FlatMap Transformation: Similar to map but produces multiple elements for each input element.It returns RDD of elements in list rather than list of
+Split example: rdd.flatMap(x => x.split(“ “))
+Pseduo Transformation: distinct- expensive/union- cheap,contains duplicates/intersection - expensive/subtract - takes elements in rdd1 which is not present in rdd2.
+Carteasn Transformation: returns rdd1 {x,y,z} , rdd2 {a,,b,c} as {(x,a), (x,b)… (z,c)}
+Reduce Action: Takes a function that operates of 2 elements of that type in RDD; dd.reduce((x,y) => x+y)
+Fold Action: Similar to reduce except it takes “zero value” to be the initial call for each partition.
+Take Action: Returns the number of elements mentioned but will not return in the same order
+Top Action: Used to take the top elements based on the ordering
+Sample Action: Used to sample data . rdd,takeSample(false,1) ; If true is mentioned it returns the number of elements mentioned in the count with duplicating values of rdd.
+Count Action:Returns count
+Count By Value Action: returns no of times each elements occurs in RDD
+Take Ordered Action: returns the rdd in the natural sorting order similar to take.
+Foreach Action : rdd.foreach(println)
+Implicit conversions: Scala is able to do implicit conversions similar to java for RDD.
+Persistence: Scala stores the data in JVM heap space as unserialized. If stored in disk , it will be always serialized. e.g. result.persist(StorageLevel.DISK_ONLY); result.unpersist()
+Persistence levels: MEMORY_ONLY - more space used, less CPU time/ MEMORY_ONLY_SER - less space used, more CPU time/MEMORY_AND_DISK - more space used, medium CPU time/MEMORY_AND_DISK_SER - low space used, high cpu time/DISK_ONLY - low space used, high cpu time
+Pair Value RDD: Used to count reviews for each product, grouping together data with same key, grouping together different RDDs
+Pair Value RDD Creation: val pairs = lines.map(x => (x.split(" ")(0), x))
+ReduceByKey Transformation: rdd.reduceByKey((x, y) => x + y) // adds values grouped by key
+GroupByKey Transformation: rdd.groupByKey() //groups values based on the key
+MapValues Transformation: rdd,mapValues(x => x+1) //apply function to each values without changing key
+FlatMapValues Transformation: rdd.flatMapValues(x => x.to(5)) //apply function to each values and generate key value pair with old rdd 
+Keys Transformation: Returns a list of keys //rdd.keys
+Values Transformation: Returns list of values //rdd.values
+SortByKey Transformation: Returns results in sorted order //rdd.sortByKey
+SubtractByKey Transformation: Returns the rdd1 key value which is not in rd.
+Join Transformation: Groups by key with rdd1 and rdd2 
+RightOuterJoin Transformation: Perform join but the key should be present in rdd1 
+LeftOuterJoin Transformation: Perform join but the key should be present in rd..
+Cogroup Transformation: Groups the data from both RDDs sharing the same key .eg {(1,[2].[]) , (3, [4,6], [9])}
+Filter Action: rdd1.filter{case (key, value) => value >3}
+PerKeyAverage: rdd.mapValues(x => (x, 1)).reduceByKey((x, y) => (x._1 + y._1, x._2 + y._2))
+Word Count: val result = words.map(x => (x, 1)).reduceByKey((x, y) => x + y)
+To check partitions size: result.partitions.size ; To explicitly partition, provide the partition parameter as a number in rdd actions.
+Repartition: Repartition can be done by using repartition or coalesce . Repartition is expensive as it shuffles entire date. Coalese is optimized but can be used only for reducing rdds 
+CountByKey: counts the number of keys in pair rdd
+CollectAsMap: collects the results as map format. If duplicate keys are there , it is getting override
+Lookuo: returns the value for the lookup key
+
+Open questions:
+2.Need to check how top action works
+3.Need to check how myOrdering works in takeOrdered.
+4.what is the use of fold if it supplies 0 value
+5.Need to check how aggregate works
+6.What is combine by key
