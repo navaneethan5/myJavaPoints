@@ -1,5 +1,11 @@
 Factory Pattern:
 - Create objects without exposing the creation logic to the client.
 - Create an interface and classes implementing it. Then create FactoryPattern class which contains methods to create objects. Then create a new class and create a Factorypattern object. Then invoke the method to create an object.
+Abstract Factory Pattern:
+- Create factory of factories
+- Create interface1 & 2 implementing classes. Then create AbstractFactory that contains method. Create interface1Factory & 2 extending Abstractfactory.Then create a new class that creates factory pattern objects of interface2factory & 2. Then invoke the method to create an object.
+Singleton Pattern:
+- Creates only on object of the class. Can be accessed by the class itself
+- Create a class with private constructor. Have a private static object definition. Create static method to create retrun the instance. Invoke the method using class.
 
 
