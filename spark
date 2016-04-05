@@ -37,8 +37,8 @@ Values Transformation: Returns list of values //rdd.values
 SortByKey Transformation: Returns results in sorted order //rdd.sortByKey
 SubtractByKey Transformation: Returns the rdd1 key value which is not in rd.
 Join Transformation: Groups by key with rdd1 and rdd2 
-RightOuterJoin Transformation: Perform join but the key should be present in rdd1 
-LeftOuterJoin Transformation: Perform join but the key should be present in rd..
+RightOuterJoin Transformation: Perform join but the key should be present in rdd1 {(3,(Some(4),9)),(3,(Some(6),9))}
+LeftOuterJoin Transformation: Perform join but the key should be present in rdd1.{(1,(2,None)), (3,(4,Some(9))), (3,(6,Some(9)))}
 Cogroup Transformation: Groups the data from both RDDs sharing the same key .eg {(1,[2].[]) , (3, [4,6], [9])}
 Filter Action: rdd1.filter{case (key, value) => value >3}
 PerKeyAverage: rdd.mapValues(x => (x, 1)).reduceByKey((x, y) => (x._1 + y._1, x._2 + y._2))
