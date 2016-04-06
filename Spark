@@ -56,6 +56,10 @@ Benefits from partioning: cogroup(), groupWith(), join(), leftOuterJoin(), right
 Supported file formats: text, json,csv, sequencefiles, protocol format, object files (o/p format to hadoop will always be a key value pair)
 Whole file: val input = sc.wholeTextFiles("file://home/holden/salesFiles") ; creates key value pair, where key is the file name
 Save text files: pair.saveAsTextFile("/tmp/test") ; this saves text files in op directory based on the partion size alomg with success file
+Hadoop Ditributed file system: Distributes these files across the nodes within a cluster.Fault tolerance - always stores 3 copies. Files only be created/deleted, cannot be updated. Data replication.Code -> data
+HDFS architecture: One "Name node" per cluster contains metadata about the cluster.Data node acts as slave.
+HDFS storing data: Files split as data blocks. Each block is replicated. Clients asks Namenode to write where. Name node gives a list of data nodes and client writes directly to data node.
+
 
 
 
