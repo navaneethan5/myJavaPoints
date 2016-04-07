@@ -59,7 +59,11 @@ Save text files: pair.saveAsTextFile("/tmp/test") ; this saves text files in op 
 Hadoop Ditributed file system: Distributes these files across the nodes within a cluster.Fault tolerance - always stores 3 copies. Files only be created/deleted, cannot be updated. Data replication.Code -> data
 HDFS architecture: One "Name node" per cluster contains metadata about the cluster.Data node acts as slave.
 HDFS storing data: Files split as data blocks. Each block is replicated. Clients asks Namenode to write where. Name node gives a list of data nodes and client writes directly to data node.
-
+Sqoop: Its a tool to transfer rdbms data to hdfs
+Spark management: Yarn, mesos, standalone
+Spark storage: local, hdfs, s3, nosql, rdbms
+Spark architecture: master node -> cluster manager -> task node
+Spark context: spark object, used to create rdd, works with cluster manager, splits tasks across nodes, partitions across nodes, results returned to driver program.
 
 
 
