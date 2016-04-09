@@ -16,6 +16,8 @@
 - Auto wiring: Tells spring how to figure out the dependencies between beans and wire automatically.
 - Bean setters : Whenever there is a dependency, we need to add the corresponding setter object to inject the beans and add corresponding entry in bean.xml
 - Autowiring by type: Set the autowire property to "byType". Need to ensure that there are no ambiguites.
+- Autowiring by name: Use this property when ambuguities present. Can be set by using "byName". Ensure the bean name matches with the property.
+
 
 
 Open ques:
