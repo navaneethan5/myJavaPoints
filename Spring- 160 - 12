@@ -1,0 +1,10 @@
+- Basic jars: spring core, context, beans.
+- Spring bean container: Application context = new FileSytemApplicationContext("beans.xml");   Person person = (Person)context.getBean("person");
+- Types of context: FileSystemApplicationContext, ClasspathApplicationContext.
+- Constructor arguments: can be configured to bean by adding "insert constructor-arg element" option.
+- Property elements: can be configured to bean by adding "insert property element".
+- Dependency inject: if an object1 requires another object2, then the object2 can be injected to the object1. To do this , create a setmethod and set the ref bean in object1
+- Singleton bean scope: irrespective of no of times it is requested from the bean container it will give the same bean.
+- Prototype bean scope: everytime a bean is requested from the container it gives a different bean.
+- Init method: Method runs after all propeties are set(construtor runs before)
+- Destroy method: Method runs when closing the bean context(if prototype is set, then the close method needs to be taken care by user)
