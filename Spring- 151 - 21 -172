@@ -12,6 +12,10 @@
 - List of beans: List of beans can be added by using "insert list, insert ref element"
 - Inner beans: Instead of setting the property as bean, we can define the bean.
 - Map property: Map property can be added by using "insert props, insert prop" element
+- Map of beans: Map property can be added by using "insert map, insert entry" element.To use object as a key, we need to implement hashcode and .equals method.
+- Auto wiring: Tells spring how to figure out the dependencies between beans and wire automatically.
+- Bean setters : Whenever there is a dependency, we need to add the corresponding setter object to inject the beans and add corresponding entry in bean.xml
+- Autowiring by type: Set the autowire property to "byType". Need to ensure that there are no ambiguites.
 
 
 Open ques:
