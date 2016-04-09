@@ -11,6 +11,8 @@
 - List property: List property can be added by using "insert list, insert value  element"; set property also same instead set cannot have duplicate values.
 - List of beans: List of beans can be added by using "insert list, insert ref element"
 - Inner beans: Instead of setting the property as bean, we can define the bean.
+- Map property: Map property can be added by using "insert props, insert prop" element
+
 
 Open ques:
 what is factory bean and method
