@@ -17,6 +17,14 @@
 - Bean setters : Whenever there is a dependency, we need to add the corresponding setter object to inject the beans and add corresponding entry in bean.xml
 - Autowiring by type: Set the autowire property to "byType". Need to ensure that there are no ambiguites.
 - Autowiring by name: Use this property when ambuguities present. Can be set by using "byName". Ensure the bean name matches with the property.
+- Autowiring by constructor: Works in the same way as "byType" so it should not be ambigiuous. 
+- Default autowiring: Can be done by setting the default type at beans.xml level. Using default-autowired candidates will ensure that only mentioned beans can be autowired.
+- Autowire candidate/Primary: Candidate - setting autowired candidate to false , will ignore any ambiguties error.Primary - set to true to take the bean as primary and other beans can be autowired some where else.
+- Annotations enabling: Add the context namespace in beans xml; Add <context:annotatation-config> tag;
+- Annotation autowiring: Add the @Autowired in the setter method/constructor method/declaration section(setter not needed) of the DI object
+- Required property; If required property of autowired is set to false, then the corresponding beans xml entry is not needed.
+
+
 
 
 
