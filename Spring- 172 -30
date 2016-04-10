@@ -22,7 +22,25 @@
 - Autowire candidate/Primary: Candidate - setting autowired candidate to false , will ignore any ambiguties error.Primary - set to true to take the bean as primary and other beans can be autowired some where else.
 - Annotations enabling: Add the context namespace in beans xml; Add <context:annotatation-config> tag;
 - Annotation autowiring: Add the @Autowired in the setter method/constructor method/declaration section(setter not needed) of the DI object
-- Required property; If required property of autowired is set to false, then the corresponding beans xml entry is not needed.
+- Required property; If required property of autowired is set to false, then the corresponding beans xml entry is not needed, but null check needs to be made wherever the beans are used.
+- Qualifer tag: If there are bean ambiguities, then set the qualifier for one of the bean- insert qualifier/class level @Qualfier() , and use the @Qualifier() in class along with @Autowire.(similar to primary). 
+- Resource tag: Use @Resource(name="") to autowire the bean
+- Init/Destroy annotation: Use @Resource. Then create methods @PostConstruct and @PreDestroy
+- Inject annotattion: Include javax.inject jar. Then use @Inject along with @Named(value="").
+- Automatic Bean Discovery: Eliminate the bean.xml entires by adding <context:componenent-scan> with baepackage path. Then add @Component to all class level beans.
+- Setting property with annotation: Use the @Autowired in setter method and pass in the value along with @Value("").
+- SPEL: Can be used to set the dynamic values of properties in a bean. Try with #{} to set the bean values.
+- SPEL annotations: In the value operator of the setter method give "#{}"
+- Sample SPEL usages:#{new java.util.Date.toString}, #{T(Math).PI}
+- Property files: Property files can be accessed by using <context:property-placeholder> and metioning the location of the property file. Then access the property values in the bean using ${} in the property.
+
+
+
+
+
+
+
+
 
 
 
