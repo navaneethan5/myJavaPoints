@@ -33,18 +33,11 @@
 - SPEL annotations: In the value operator of the setter method give "#{}"
 - Sample SPEL usages:#{new java.util.Date.toString}, #{T(Math).PI}
 - Property files: Property files can be accessed by using <context:property-placeholder> and metioning the location of the property file. Then access the property values in the bean using ${} in the property.
-
-
-
-
-
-
-
-
-
-
+- Basic connection pooling: Download sql-jdbc connector and use Driver.class. Then download apache dbcp and use BasicDataSource. Create a bean entry dataSource with class BasicDataSource. Then set the properties, driverClassName,url, username, password
+- JDBCTemplate: A class used to query the database. Can be downloaded from spring jdbc jar. To cofigure it, create a setter method for datasource and wrap with JDBCTemplate constructor.
 
 
 
 Open ques:
 what is factory bean and method
+what is connection pooling
