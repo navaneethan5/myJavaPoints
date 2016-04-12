@@ -57,7 +57,9 @@
 - Service: Can be aded by using @Service
 - JSP nav: On click of link if it needs to be navigated to different request, then use pageContext.request.contextConfig/<request mapping>
 - Set URL params: Pass the variable in the method parms(). The value can be set by using @RequestParms("<name>")
-
+- Form creation: Create a jsp with <form> tags with method and action (this should be the request it is routed to controller)
+- Getting form values: Have the jsp element name same as that of command name and use teh command in parms of the requested method in controller
+- CSS: To add css open <style type ="text/css"> . Then use a class in any jsp tage and use the .class name{} to define the style. 
 
 
 
