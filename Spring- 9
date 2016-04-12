@@ -38,19 +38,25 @@
 - NamedParameterJdbcTemplate: Use :<parm name> for queries. For that use MapSqlParameterSource class to add params with key and value.
 - BeanPropertySqlParamertSource: This is an alternative for MapSqlParameterSource which can be used to add all properties in the beans as params.
 - Batchupdate: Can be done by using jdbc.batchUpdate. The sql statement is prepared by SqlParameterSource parms = SqlParameterSourceUtils.createBatch(list1.toArray());
-- Transaction Management: Create a bean with DataSourceTransactionManager and define a property "dataSource" .Then add <tx:annotation-driven>
+- Transaction Management: Create a bean with DataSourceTransactionManager and define a property "dataSource" .Then add <tx:annotation-driven>.
 - Apply Transactions: Add @Transactional to ensure the rollback happens in terms of any failures.
 - Web jars: Add spring web and spring web mvc
-- Dispatcher servelet: Spring roots all request through dispatcher servelet -> which in turn look for controller. Can be created by using new servelet with class pointing DispatcherServelet.
+- Dispatcher servelet: Spring roots all request through dispatcher servelet -> which in turn look for controller. Can be created by using new servelet with class pointing DispatcherServelet.The config is in web.xml
 - Load on startup: Use <load-on-startup> to 1 for loading when server starts. The spring bean configuration file "beans.xml" should be in web-inf folder with name <servelet-name>-servelet.xml
 - Controller: Add annotation @Controller. Add controller methods with annotation @RequestMapping("")
 - Controller annotation: Add <mvc:annotation-driven> instead of <context:annotation-driven>
 - View Resolver: Used to convert strings to jsps. Create a bean with class InternalResourceviewResolver with properties prefix- /WEB-INF/jsps/ and suffix - .jsp
 - Http Session: HttpSession class can be used with params of any controller method. Value can be set by using session.setAttubute(key, value). In jsp it can be accessed by using <%= %>
 - Model: Model class can be used with parms of any controller method. Value can be set by using model.addAttribute(key,value). In jsp it can be accessed by using SPEL ${key}
-- JSTL: Add JSTL jar and JSTL tag libarary needs to be added before using JSTL tags.
+- JSTL: Add JSTL jar and JSTL tag libarary import needs to be added before using JSTL tags.
 - Cout tag: Cout tag escapes the special chars.
-
+- JNDI: Java Naming Directory Interface; Add a resource bean config in tomcat context.xml. Then add the ref in web.xml
+- JSTL Sql: Can be configured by adding jstl library for sql in jsp. Then use <sql:query var="rs" dataSource="jdbc/spring">
+- Loading Beans: To load other beans like Dao-beans and Service beans, create a listerer tag with <listener-class> ..ContextLoaderListerner. Then add <context-parms> with <param-name> as contextConfigLocation; <param-value> classpath: <bean path>
+- Configure JNDI: Create a <jee:jndi-lookup> with id dataSource and class DataSource. Use the jndi-name with jdbc/spring
+- Service: Can be aded by using @Service
+- JSP nav: On click of link if it needs to be navigated to different request, then use pageContext.request.contextConfig/<request mapping>
+- Set URL params: Pass the variable in the method parms(). The value can be set by using @RequestParms("<name>")
 
 
 
