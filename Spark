@@ -1,3 +1,10 @@
+Variable declaration: var myString:String="hello"
+Function declaration: def funName(z:Int,y:Int):Int = {}
+Array declaration: val x = Array("1","2","3"). Can be accessed by using x(0). Should be of same data type;Mutable;
+List declaration: val y = List(1,2,3). Can be accesed by y(0). Should be of same type; Immutable;
+Tuples: Is an ordered container similar to array with 2 or more values; Index starts with 1; eg val emp= {1,"type"}. Can be of different types. Can be accessed by using emp._1.
+Map declaration: val map1 = Map("id" -> 1,"name" -> "test"}. Can be accessed by using map1("id")
+For loop: for (i <- 1 to 20 if i % 2 == 0)
 RDD: Immutable collection of simple objects. Can be split into multiple partitions which in turn can run individually on each node in cluster.
 RDD creation: Can be created by loading an external dataset or by distributing a collection of objects to the driver program.
 Types of RDD operations: Transformations, which in turn creates a new RDD /Actions, returns the computed results of RDD and can return to driver/hdfs.
