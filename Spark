@@ -35,8 +35,8 @@ Persistence: Scala stores the data in JVM heap space as unserialized. If stored 
 Persistence levels: MEMORY_ONLY - more space used, less CPU time/ MEMORY_ONLY_SER - less space used, more CPU time/MEMORY_AND_DISK - more space used, medium CPU time/MEMORY_AND_DISK_SER - low space used, high cpu time/DISK_ONLY - low space used, high cpu time
 Pair Value RDD: Used to count reviews for each product, grouping together data with same key, grouping together different RDDs
 Pair Value RDD Creation: val pairs = lines.map(x => (x.split(" ")(0), x))
-ReduceByKey Transformation: rdd.reduceByKey((x, y) => x + y) // adds values grouped by key
-GroupByKey Transformation: rdd.groupByKey() //groups values based on the key
+ReduceByKey Transformation: rdd.reduceByKey((x, y) => x + y) // adds values grouped by key; Perform reduce, but by key
+GroupByKey Transformation: rdd.groupByKey() //groups values based on the key . Perform aggregation like sum , average by key
 MapValues Transformation: rdd,mapValues(x => x+1) //apply function to each values without changing key
 FlatMapValues Transformation: rdd.flatMapValues(x => x.to(5)) //apply function to each values and generate key value pair with old rdd 
 Keys Transformation: Returns a list of keys //rdd.keys
@@ -52,7 +52,7 @@ PerKeyAverage: rdd.mapValues(x => (x, 1)).reduceByKey((x, y) => (x._1 + y._1, x.
 Word Count: val result = words.map(x => (x, 1)).reduceByKey((x, y) => x + y)
 To check partitions size: result.partitions.size ; To explicitly partition, provide the partition parameter as a number in rdd actions.
 Repartition: Repartition can be done by using repartition or coalesce . Repartition is expensive as it shuffles entire date. Coalese is optimized but can be used only for reducing rdds 
-CountByKey: counts the number of keys in pair rdd
+CountByKey: counts the number of keys in pair rdd; produces a count by each key in RDD
 CollectAsMap: collects the results as map format. If duplicate keys are there , it is getting override
 Lookuo: returns the value for the lookup key
 Partitions in key value pairs: Keys can be grouped in 1 node when partitions are defined, but cannot control which key goes to which node.
@@ -71,14 +71,15 @@ Spark management: Yarn, mesos, standalone
 Spark storage: local, hdfs, s3, nosql, rdbms
 Spark architecture: master node -> cluster manager -> task node
 Spark context: spark object, used to create rdd, works with cluster manager, splits tasks across nodes, partitions across nodes, results returned to driver program.
-
+Aggregate: RDD = [3,5,4,7,4] => RDD1 = [3,5,4] , RDD2 = [7,4] ; SeqOp: (lambda x, y : x[0]+y, x[1]*y) ;combOp (lambda x,y : x[0]+y[0] , x[1]*y[1]) ; collData.aggregate((0,1), seqOp, combOp); return [(12,60), (11,28)] => [23, 1650]
+AggregareByKe Action: Perform aggregate by key.
+Storing RDDs: Use language specific libraries for persistence instead of spark utilities.
+Paraellism paramter: spark.default.parallelism - default is the number of cores available in the cluster.
+Broadcast variable: Read only variables that is shared by all nodes.Used for lookup tables abd similar functions.
+Accumulators: Global variable that is local to every node in the cluster.Shared variable that can be updated by all nodes.
 
 
 
 
 Open questions:
-2.Need to check how top action works
-3.Need to check how myOrdering works in takeOrdered.
-4.what is the use of fold if it supplies 0 value
-5.Need to check how aggregate works
-6.What is combine by key
+- Map definition is not working
