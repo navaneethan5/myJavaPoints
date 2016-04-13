@@ -60,8 +60,11 @@
 - Form creation: Create a jsp with <form> tags with method and action (this should be the request it is routed to controller)
 - Getting form values: Have the jsp element name same as that of command name and use teh command in parms of the requested method in controller
 - CSS: To add css open <style type ="text/css"> . Then use a class in any jsp tage and use the .class name{} to define the style. 
-
-
+- Static resource: To add static resource, create <mvc:resources> tag with location as path of the css files and mapping as new URL eg /static/** to access the files.
+- Validators: Add validation api , hibernate, hibernate validator jars. Then use BindingResult result to controller class parms to check if it has errors. The errors can be defined in the property declaration with@ symbol
+- Spring form: To convert <form> to spring form <sf:form> add the spring form directive and include sf in all the tags. The commandName variable needs to be supplied to the form tag to ensure that the form retains values.
+- Form errors in jsp: To display the form errors in jsp , add <sf:errors> with path and cssClass.
+- Spring exception: Create a class with annotation @ControllerAdvice. Then add methods with parms Exception ex and annotation eg @ExceptionHandler(DatabaseException.class)
 
 Open ques:
 what is factory bean and method
