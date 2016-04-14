@@ -75,12 +75,19 @@ Aggregate: RDD = [3,5,4,7,4] => RDD1 = [3,5,4] , RDD2 = [7,4] ; SeqOp: (lambda x
 AggregareByKe Action: Perform aggregate by key.
 Storing RDDs: Use language specific libraries for persistence instead of spark utilities.
 Paraellism paramter: spark.default.parallelism - default is the number of cores available in the cluster.
-Broadcast variable: Read only variables that is shared by all nodes.Used for lookup tables abd similar functions.
-Accumulators: Global variable that is local to every node in the cluster.Shared variable that can be updated by all nodes.
+Broadcast variable: Read only variables that is shared by all nodes.Used for lookup tables abd similar functions.val sedanTest = sc.broadcast("TMAX")
+Accumulators: Global variable that is local to every node in the cluster.Shared variable that can be updated by all nodes.eg.  val count2 = sc.accumulator(0)
 To print in format: for(x <- rdd.collect){println(x)}
 Shortest line in RDD: rdd.reduce((x,y) => if(x.length < y.length) x else y); 
 Aggregate eg : collData.aggregate(0)((x,y) => x+y, (x,y) => x+y) same ad collData.reduce((x,y) => x+y)
-
+Partitions: collData.getNumPartitions() - derived by number of cores in machine; can be controlled by val rdd = sc.parallelize(Array(1,2,3,4)),2);
+Dataframe: Is an rdd with orgaized rows and columns. has a schema - column names and data types
+Dataframe supported operations: Filter, Join, GroupBy, Agg, RegisterAsTempTable
+Sqlcontext: Similar to spark context.val sqlContext = new org.apache.spark.sql.SQLContext(sc) ; import sqlContext.implicit._;
+Create Dataframe: val drdd = sqlContext.read.json("json file") ;drdd.show() - similar to select *; drdd.printSchema() - display the schema
+Select query: drdd.select("<column name>").show
+Filter query; zip.filter(zip("city") === "CHICOPEE").show
+GroupBy query:zip.groupBy("city").count().show()
 
 
 
