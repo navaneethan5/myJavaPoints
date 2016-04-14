@@ -77,6 +77,9 @@ Storing RDDs: Use language specific libraries for persistence instead of spark u
 Paraellism paramter: spark.default.parallelism - default is the number of cores available in the cluster.
 Broadcast variable: Read only variables that is shared by all nodes.Used for lookup tables abd similar functions.
 Accumulators: Global variable that is local to every node in the cluster.Shared variable that can be updated by all nodes.
+To print in format: for(x <- rdd.collect){println(x)}
+Shortest line in RDD: rdd.reduce((x,y) => if(x.length < y.length) x else y); 
+Aggregate eg : collData.aggregate(0)((x,y) => x+y, (x,y) => x+y) same ad collData.reduce((x,y) => x+y)
 
 
 
