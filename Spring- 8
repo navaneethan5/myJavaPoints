@@ -65,6 +65,8 @@
 - Spring form: To convert <form> to spring form <sf:form> add the spring form directive and include sf in all the tags. The commandName variable needs to be supplied to the form tag to ensure that the form retains values.
 - Form errors in jsp: To display the form errors in jsp , add <sf:errors> with path and cssClass.
 - Spring exception: Create a class with annotation @ControllerAdvice. Then add methods with parms Exception ex and annotation eg @ExceptionHandler(DatabaseException.class)
+- AOP: Add spring aspect jar
+- Aspect/Advice: Aspect is the class that executes on each method call and advice is teh method that executes on each method call.
 
 Open ques:
 what is factory bean and method
