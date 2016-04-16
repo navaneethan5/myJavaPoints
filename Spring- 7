@@ -71,6 +71,15 @@
 - Annotation aspects: Add @Aspect in aspect class along with @Component. For the advice add @Before(return type qualified name.method).The bracket stuff can also be tagged as @Pointcut with empty method and use the method name as reference.Then insert <aop:aspectj-proxy> in beans.xml.
 - Wildcards: Wildcards can be defined in pointcuts. * can be replaced for return types, packages, classes and .. can be replaced for argument types. eg execution(* *.*(..))
 - Types of advice: @Before - runs before a method; @After - runs after a method irrespective of exception'; @AfterReturning - runs only if exception is not thrown;@AfterThrowing - runs only if exception is thrown; @Around - The method takes a precedingJoinPoint as argument .Run before every method, after p.proceed run the after method.. 
+- Context subclass: Whenever we request an bean from the context, it returns the subclass of the bean with same class methods/variables.
+- Aspect interface: If a class has interface implementation, then the class return by the bean container is proxy. To fix this create an interface with all methods implemented, such that the interface will be an instance of the class.
+- Pointcut designation: eg, within,execution
+- Within PCD: Advices all the methods within the class eg within(<fully qualified class name>)
+- Target PCD: Same as that of within, but is specfic to 1 class, no wild cards allowed.
+- Bean PCD: Same as that of target except is it referred to as spring bean id.Wildcards are allowed here.
+- This PCD: Same as that of target except target looks for class, whereas this looks for the type of the bean it was requested from context.
+
+
 
 Open ques:
 what is factory bean and method
