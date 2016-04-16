@@ -66,7 +66,10 @@
 - Form errors in jsp: To display the form errors in jsp , add <sf:errors> with path and cssClass.
 - Spring exception: Create a class with annotation @ControllerAdvice. Then add methods with parms Exception ex and annotation eg @ExceptionHandler(DatabaseException.class)
 - AOP: Add spring aspect jar
-- Aspect/Advice: Aspect is the class that executes on each method call and advice is teh method that executes on each method call.
+- Aspect/Advice: Aspect is the class and advice is the method that executes on each method call.
+- Jointpoint -  eg run a advice whenever a object is created, or whenever constructir is created. In spring normally it would be method execution.
+- Annotation aspects: Add @Aspect in aspect class along with @Component. For the advice add @Before(return type qualified name.method).The bracket stuff can also be tagged as @Pointcut with empty method and use the method name as reference.Then insert <aop:aspectj-proxy> in beans.xml.
+- Wildcards: Wildcards can be defined in pointcuts. * can be replaced for return types, packages, classes and .. can be replaced for argument types.
 
 Open ques:
 what is factory bean and method
