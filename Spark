@@ -90,6 +90,7 @@ Filter query; zip.filter(zip("city") === "CHICOPEE").show
 GroupBy query:zip.groupBy("city").count().show()
 Join: emp.join(dept,emp("depid") === dept("deptid")).show
 Temp table: zip.registerTempTable("zip1");sqlContext.sql("select * from zip1 where city = 'CHICOPEE'").show
+JDBC: val demoOf = sqlContext.read.format("jdbc").options(Map("url" -> "jdbc:mysql://localhost:3986/demo" , "driver" -> "com.mysql.jdbc.Driver", "dbtable" -> "demotable", "user" -> "root", "password" -> "")).load
 
 
 
