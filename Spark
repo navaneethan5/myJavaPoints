@@ -88,6 +88,8 @@ Create Dataframe: val drdd = sqlContext.read.json("json file") ;drdd.show() - si
 Select query: drdd.select("<column name>").show
 Filter query; zip.filter(zip("city") === "CHICOPEE").show
 GroupBy query:zip.groupBy("city").count().show()
+Join: emp.join(dept,emp("depid") === dept("deptid")).show
+Temp table: zip.registerTempTable("zip1");sqlContext.sql("select * from zip1 where city = 'CHICOPEE'").show
 
 
 
