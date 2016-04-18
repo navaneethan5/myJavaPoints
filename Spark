@@ -91,6 +91,12 @@ GroupBy query:zip.groupBy("city").count().show()
 Join: emp.join(dept,emp("depid") === dept("deptid")).show
 Temp table: zip.registerTempTable("zip1");sqlContext.sql("select * from zip1 where city = 'CHICOPEE'").show
 JDBC: val demoOf = sqlContext.read.format("jdbc").options(Map("url" -> "jdbc:mysql://localhost:3986/demo" , "driver" -> "com.mysql.jdbc.Driver", "dbtable" -> "demotable", "user" -> "root", "password" -> "")).load
+Create dataframes from RDD:val autoDF = rowRDD.toDF("name","gender","age") ; RDD should be a tuple
+DStream: Discretized Stream. Data is receieved in DStream and collected as a microbatch. Each microbatch is a RDD.
+Windowing/Sling: Functions are available in DStream to filter the number of readings.
+StreamingContext: Import import org.apache.spark.streaming.StreamingContext._ and import org.apache.spark.streaming.Seconds
+Declaration of Streaming Context: val ssc = new StreamingContext(sc, Seconds(1))
+
 
 
 
