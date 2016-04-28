@@ -78,6 +78,10 @@
 - Target PCD: Same as that of within, but is specfic to 1 class, no wild cards allowed.
 - Bean PCD: Same as that of target except is it referred to as spring bean id.Wildcards are allowed here.
 - This PCD: Same as that of target except target looks for class, whereas this looks for the type of the bean it was requested from context.
+- Filter: Create a new filter which will redirect all the requests based on the servelet definition in xml before going to actual code.
+- Spring security jar: spring security core , web, config jar needs to be added
+- Spring filter: Create a new filter with existing filter class DelegateFilterProxy with name springSecurityFilterChain.Then add a xml file with security namespace
+
 
 
 
