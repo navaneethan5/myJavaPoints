@@ -100,6 +100,7 @@ Spark MLIB: Comes with 2 flavours - spark.mllib, spark.ml
 Special data types: Local vector and labelled point. Any mlib related processing needs to be converted to these data types before processing.
 Textfile to dataframe: val df = textFile.toDF("line")
 Map return type: It always returns array of strings
+https://gist.github.com/tmcgrath
 
 
 
