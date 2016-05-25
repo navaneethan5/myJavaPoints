@@ -1,0 +1,23 @@
+RDD: Collection of elements partitioned across various nodes in a cluster that can be operated in parallel.
+Shared variables: Variables that are shared across the tasks running on each node or between tasks/driver program
+Accumulators: Shared variable used as counters
+Broadcast variables: Shared variable available  which is used to cache a value in memory across all nodes
+Basic imports: org.apache.spark.SparkConf and SparkContext
+Initializing spark : val conf = new SparkConf().setAppName(appname).setMaster(master); val sc = new SparkContext(conf) where 
+master can be local or mesos/yarn
+SparkContext: Its an object that tells spark how to access a cluster
+RDD creation: RDD can be created either by parallelizing a collection or loading from a file system such as HDFS
+Partitions: Partitions can be explicity mentioned by val rdd = sc.parallelize(new List, 10). But the partitions has to be more 
+than the number of blocks (HDFS default block - 64MB)
+RDD from multiple files: Can be created by sc.wholeTextFiles. Retuns (filename, content ) pair
+Saving RDD: sc.saveAsObjectFile or sc.objectFile - saves the rdd as java serialized objects
+Transformations: Pass each element in a RDD to a function and create a new RDD with the results
+Action: Aggregate all elements in a RDD to a function and send the computed results to the driver program
+Lazy evaulation: RDDs will be created on when an action is performed upon
+Persistence: RDD can be persisted using persist/cache across the cluster
+
+
+
+
+
+
