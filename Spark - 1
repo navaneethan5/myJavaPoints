@@ -15,6 +15,13 @@ Transformations: Pass each element in a RDD to a function and create a new RDD w
 Action: Aggregate all elements in a RDD to a function and send the computed results to the driver program
 Lazy evaulation: RDDs will be created on when an action is performed upon
 Persistence: RDD can be persisted using persist/cache across the cluster
+Closures: The closures are the functions that are used within rdd. No outside scope variable should be referenced for updation.
+It will not work as the closure will send the inital copy of the value across various nodes and will not update the driver
+program
+Collect function: Collect is used to get all rdd values in all nodes to driver program .
+Prinln function: The elements in RDD can be printed by using rdd.map(println) but this will send the stdout to the node instead
+of driver when executed in distibuted mode
+
 
 
 
