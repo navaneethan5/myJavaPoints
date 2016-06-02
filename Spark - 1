@@ -1,26 +1,61 @@
-RDD: Collection of elements partitioned across various nodes in a cluster that can be operated in parallel.
-Shared variables: Variables that are shared across the tasks running on each node or between tasks/driver program
-Accumulators: Shared variable used as counters
-Broadcast variables: Shared variable available  which is used to cache a value in memory across all nodes
-Basic imports: org.apache.spark.SparkConf and SparkContext
-Initializing spark : val conf = new SparkConf().setAppName(appname).setMaster(master); val sc = new SparkContext(conf) where 
-master can be local or mesos/yarn
-SparkContext: Its an object that tells spark how to access a cluster
-RDD creation: RDD can be created either by parallelizing a collection or loading from a file system such as HDFS
-Partitions: Partitions can be explicity mentioned by val rdd = sc.parallelize(new List, 10). But the partitions has to be more 
-than the number of blocks (HDFS default block - 64MB)
-RDD from multiple files: Can be created by sc.wholeTextFiles. Retuns (filename, content ) pair
-Saving RDD: sc.saveAsObjectFile or sc.objectFile - saves the rdd as java serialized objects
-Transformations: Pass each element in a RDD to a function and create a new RDD with the results
-Action: Aggregate all elements in a RDD to a function and send the computed results to the driver program
-Lazy evaulation: RDDs will be created on when an action is performed upon
-Persistence: RDD can be persisted using persist/cache across the cluster
-Closures: The closures are the functions that are used within rdd. No outside scope variable should be referenced for updation.
-It will not work as the closure will send the inital copy of the value across various nodes and will not update the driver
-program
-Collect function: Collect is used to get all rdd values in all nodes to driver program .
-Prinln function: The elements in RDD can be printed by using rdd.map(println) but this will send the stdout to the node instead
-of driver when executed in distibuted mode
+SparkContext: 
+  Object that tells spark how to access the cluster. It can be used to create RDD, accumulators and broadcast
+  variables that can be used across the cluster. Only one SparkContext can be created per JVM(need to stop 1 to create another)
+
+SparkContext syntax:
+  SparkContext sc = new SparkContext(new SparkConf().setMaster(master).setAppName(myapp)) where myapp is the app name and master
+  is Spark Mesos , Yarn cluster url or "local" when running in stand alone mode.
+
+Using the shell:
+  To specify local cluster running on 4 cores, spark-shell --master local[4]
+  To execute a code , spark-shell --master local[4] --jar sample.jar
+  To include a dependency, spark-shell --master local[40 --packages "org.example:example:01."
+
+RDD:
+  Resilent Distributed Dataset is a fault tolerant collection of elements that can be executed in parallel by
+  paritioning across nodes.
+
+RDD creation:
+  Can be created by either parallelizing or loading from external datasets
+  Parallelizing, val data = sc.parallelize(Array [1,2,3])
+  External data, val data = sc.textFile("sample.txt")
+
+RDD partitions:
+  Spark creates 1 partition per file block (typically 64MB for hadoop). It cannot be repartioned with less no of partitions
+  when compared to blocks.
+
+Read a directory:
+  Use SparkContext.wholeTextFiles to read a directory and returns pair RDD (filename, content)
+
+To save a file:
+  Use SparkContext.objectFile or rdd.saveAsObjectFile , stores as serialized objects
+
+RDD Operations:
+  Transformations , results in a new dataset by operating each element in the original dataset
+  Actions, results in returning the results to the driver program
+
+Persistence:
+  RDD is recomputed everytime when an action is applied. Can be persisted by using persist/cache option
+  
+Lazy evaluation:
+  Results are computed only when actions are applied and not immediately when transformation is applied.
+
+Function definition:
+  Function can be defined by, class MyClass { def func1(s: String): String = { ... } }
+
+Closures:
+  Spark breaks up operation into tasks and sends each task to the executor. Prior to execution, spark evaluates task closures
+  ie the variables/methods that are visible to each executors. It serializes and send to the executors. The variables to the
+  executors are copies of the original operation and does not mutate the value in the driver program. Use accumulators to 
+  avoid non mutation
+
+  
+  
+  
+  
+
+
+
 
 
 
