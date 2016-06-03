@@ -88,22 +88,3 @@ Accumulators:
   Shared variables that are used to update the values like counter. The tasks can update the value but cannot read. Only 
   driver program can read the value. val accum = sc.accumulator(0, "My Accumulator"). Can be applied to only action and every
   tasks updates the accumulator only once ie restarted tasks will not update the accumulator
-
-
-  
-
-  
-  
-  
-  
-  
-
-
-
-
-
-
-
-
-
-
