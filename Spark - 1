@@ -35,7 +35,8 @@ RDD Operations:
   Actions, results in returning the results to the driver program
 
 Persistence:
-  RDD is recomputed everytime when an action is applied. Can be persisted by using persist/cache option
+  RDD is recomputed everytime when an action is applied. Can be persisted by using persist/cache option. Use rdd.unpersist
+  to remove persistence
   
 Lazy evaluation:
   Results are computed only when actions are applied and not immediately when transformation is applied.
@@ -48,13 +49,44 @@ Closures:
   ie the variables/methods that are visible to each executors. It serializes and send to the executors. The variables to the
   executors are copies of the original operation and does not mutate the value in the driver program. Use accumulators to 
   avoid non mutation
-  
+
 Print elements:
   rdd.collect.foreach(println) - collects the executor results to driver program
   rdd.take(n).foreach(println) - takes n elements and prints
   
 Key-Value pairs:
-  Special type of RDD represented with key and values. Additional operations like grouping/aggregating the elements by key
+  Special type of RDD represented with key and values. Additional operations like grouping/aggregating/sorting the elements
+  by key.
+
+Transformation types:
+  RDD transformations - map, filter, flatMap (operates on each element and returns 0 to more elements), union, intersection,
+  distinct.
+  Pair RDD transformations - groupByKey, reduceByKey, aggregateByKey, sortByKey, join, cartesian, 
+
+Action types:
+  RDD actions - reduce, collect, count, first, take, takeOrdered(n [ordering]), foreach
+  Pair RDD actions - countByKey
+
+Shuffle:
+  When data across the paritions needs to be aggregated ie for eg reduceByKey needs multiple partition data to be shuffled and
+  grouped in 1 partition.Shuffle creates lots of intermediate files on the disk(map and reduce). The temp storage dir can be
+  specified using spark.local.dir config parameter.
+
+Types of persistence:
+  MEMORY_ONLY - Store rdd in memory. If does not fit, some partitions will not be cached and calculaed on the fly
+  MEMORY_AND_DISK - Same as memory only but also stores in disk when does not fit in
+  MEMORY_ONLY_SER - Stores as serialized, memory efficient but more CPU intensive
+  MEMORY_AND_DISK_SER - Simliar to memory only ser, but also stores in disk when does not fit in
+  DISK_ONLY - Stores partitions on the disk
+  MEMORY_ONLY_2 .. - Same as above but replicate partition on each cluster node
+
+Broadcast variables:
+  Read only variable cached on each machine rather than sending a copy of the variable along with many tasks.Once broadcasted
+  should not be changed. Can be invoked by val bVariable = sc.broadcast(Array(1,2,3)). Can be accessed by bVariable.value
+
+
+  
+
   
   
   
