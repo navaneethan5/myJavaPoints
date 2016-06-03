@@ -84,6 +84,11 @@ Broadcast variables:
   Read only variable cached on each machine rather than sending a copy of the variable along with many tasks.Once broadcasted
   should not be changed. Can be invoked by val bVariable = sc.broadcast(Array(1,2,3)). Can be accessed by bVariable.value
 
+Accumulators:
+  Shared variables that are used to update the values like counter. The tasks can update the value but cannot read. Only 
+  driver program can read the value. val accum = sc.accumulator(0, "My Accumulator"). Can be applied to only action and every
+  tasks updates the accumulator only once ie restarted tasks will not update the accumulator
+
 
   
 
