@@ -48,7 +48,14 @@ Closures:
   ie the variables/methods that are visible to each executors. It serializes and send to the executors. The variables to the
   executors are copies of the original operation and does not mutate the value in the driver program. Use accumulators to 
   avoid non mutation
-
+  
+Print elements:
+  rdd.collect.foreach(println) - collects the executor results to driver program
+  rdd.take(n).foreach(println) - takes n elements and prints
+  
+Key-Value pairs:
+  Special type of RDD represented with key and values. Additional operations like grouping/aggregating the elements by key
+  
   
   
   
