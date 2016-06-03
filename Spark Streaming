@@ -1,0 +1,45 @@
+Spark Streaming:
+  Input data stream is converted to batches of input data by spark streaming. Then it is sent to spark engine and outputs 
+  batches of processed data.
+  Abstraction layer is DiscretizedStream or DStream (a sequence of RDDs) represents continous stream of data.
+  Input can be flume,hdfs,kafka, twitter, etc . Output can be hdfs, databases , dashboards
+
+StreamingContext:
+  Main entry point of streaming functionality. Can be created by val ssc = new StreamingContext(conf, Seconds(1))
+  DStream can be created by, val lines = ssc.socketTextStream("localhost", 9999)
+  To start netty server for tcp socket, nc -lk 9999
+  To start computations, use ssc.start()
+  To terminate computations, use ssc.awaitTermination() or  ssc.stop().
+  Can be created from existing sparkcontext, val ssc = new StreamingContext(sc, Seconds(1))
+  stop() stops the sparkcontext as well. To stop only streaminig context, set stopSparkContext= false
+
+Input Dstreams:
+  Sources - file systems, kakfa, flume
+  When running spark streaming locally use local[2] instead of local. One thread for running the receiver (input Dstream) 
+  and another for processing the recieved data.
+  When running spark streaming in cluster, the cores allocated should be more than that of receivers else there will be not
+  be threads to process the received data.
+
+Streaming sources:
+  FileStream - streamingContext.fileStream[KeyClass, ValueClass, InputFormatClass](dataDirectory). Files should be of same
+  format . Polls the directory for new files. Once moved files should not be changed. Do not require running receiver.For
+  text file stream, streamingContext.textFileStream(dataDirectory.
+  QueueStream - DStream can be created as q queue of rdds, streamingContext.queueStream(queueOfRDDs). Each rdd pushed into
+  the queue will be treated as a stream of batch rdd.
+
+Receiever Reliablity:
+  Unreliable receiver (one does not send acknowledgement to source) , Reliable receiver (sends acknowledgement)
+
+Windowed DStream:
+  Window time can be specified using val windowedStream1 = stream1.window(Seconds(20))
+  
+  
+  
+  
+
+
+  
+
+
+
+ 
