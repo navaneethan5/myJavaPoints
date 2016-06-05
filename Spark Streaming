@@ -54,6 +54,8 @@ Fault tolerance:
 Save Dstream:
   dstream1.foreachRDD(rdd, time) => {val repartitionRdd = rdd.repartition(1).cache() repartitionRdd.saveAsTextFile("test")}
 
+SqlContext:
+  To use spark sql, create a SQLContext and then use .toDF for an RDD to convert to Dataframe
   
   
   
