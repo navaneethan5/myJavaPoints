@@ -31,8 +31,29 @@ Receiever Reliablity:
   Unreliable receiver (one does not send acknowledgement to source) , Reliable receiver (sends acknowledgement)
 
 Windowed DStream:
-  Window time can be specified using val windowedStream1 = stream1.window(Seconds(20))
+  Window time can be specified using val windowedStream1 = stream1.window(Seconds(20)) .Helps to agrregate the smaller 
+  Dtstrems into larger one.
+  Batch interval - how often the data is captured into a Dstream, typically this would be 1 sec
+  Slide interval - how often a windowed transformation is computed.
+  Window interval - how far back in time the windowed transformation goes.
+  To aggregate data over large period of time, val win = dss1.reduceByKeyAndWindow((x,y) => x+y, (x,y) => x-y , 
+  Seconds(300), Seconds(1)
+  countByValueAndWindow used to count the values over the window
   
+DStream transformations:
+  repartition(num) - Change the level of parallelism by increasing/decreasing no of partitions
+  transform - val sorted = dstream1.transform(rdd => rdd.sortBy(x => x._2, false))
+
+Fault tolerance:
+  Data replicated in atleast 2 worker nodes
+  Checkpoint directory can be used to store the state in case if we need to restart the stream, ssc.checkPoint()
+  When driver fails, ss.getOrCreate(checkPointDir, <function that creates new streaming context>). When restarted it picks
+  from the checkpoint dir. If nothing found, it creates a new streaming context.
+  Zookeeper and spark built in cluster manager monitors the driver for failures (use spark-submit -supervise to monitor)
+  
+Save Dstream:
+  dstream1.foreachRDD(rdd, time) => {val repartitionRdd = rdd.repartition(1).cache() repartitionRdd.saveAsTextFile("test")}
+
   
   
   
