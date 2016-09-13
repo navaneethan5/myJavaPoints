@@ -101,11 +101,3 @@ Special data types: Local vector and labelled point. Any mlib related processing
 Textfile to dataframe: val df = textFile.toDF("line")
 Map return type: It always returns array of strings
 https://gist.github.com/tmcgrath
-
-
-
-
-
-
-Open questions:
-- Map definition is not working
